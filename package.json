@@ -1,0 +1,35 @@
+{
+  "name": "orm-becnmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js --expose-gc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richardfarago/orm-becnmark.git"
+  },
+  "author": "Richard Farago",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/richardfarago/orm-becnmark/issues"
+  },
+  "homepage": "https://github.com/richardfarago/orm-becnmark#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "knex": "^0.95.4",
+    "mssql": "^6.3.1",
+    "nanobench": "^2.1.1",
+    "nodemon": "^2.0.7",
+    "sequelize": "^6.6.2",
+    "sequelize-auto": "^0.8.1",
+    "tedious": "^11.0.6"
+  },
+  "devDependencies": {
+    "nodemark": "^0.3.0",
+    "sequelize-cli": "^6.2.0"
+  }
+}
