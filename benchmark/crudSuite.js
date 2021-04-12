@@ -1,25 +1,29 @@
-const sequelize = require('../sequelize/queries')
-const mssql = require('../mssql/queries')
-const knex = require('../knex/queries')
+const sequelize = require('../sequelize/crud')
+const mssql = require('../mssql/crud')
+const knex = require('../knex/crud')
 const perf = require('./perf')
 const helpers = require('./helpers')
 
 async function start(rounds) {
 
+    console.log(`CRUD suite started at ${new Date().toUTCString()}\n`)
+
     console.log(`Starting Sequelize with ${rounds} iterations`)
-    let sequelizeResults = await startSequelize(helpers.initResults(rounds), rounds)
+    let sequelizeResults = await _sequelize(helpers.initResults(rounds), rounds)
     helpers.printResults(sequelizeResults, rounds)
 
     console.log(`Starting mssql client with ${rounds} iterations`)
-    let mssqlResults = await startSql(helpers.initResults(rounds), rounds)
+    let mssqlResults = await _sql(helpers.initResults(rounds), rounds)
     helpers.printResults(mssqlResults, rounds)
 
     console.log(`Starting knex with ${rounds} iterations`)
-    let knexResults = await startKnex(helpers.initResults(rounds), rounds)
+    let knexResults = await _knex(helpers.initResults(rounds), rounds)
     helpers.printResults(knexResults, rounds)
+
+    console.log(`Finished at ${new Date().toUTCString()}`)
 }
 
-async function startSequelize(results, rounds) {
+async function _sequelize(results, rounds) {
 
     //PRE
     await sequelize.connect()
@@ -37,7 +41,7 @@ async function startSequelize(results, rounds) {
     return results
 }
 
-async function startSql(results, rounds) {
+async function _sql(results, rounds) {
 
     //PRE
     await mssql.connect()
@@ -56,7 +60,7 @@ async function startSql(results, rounds) {
 
 }
 
-async function startKnex(results, rounds) {
+async function _knex(results, rounds) {
 
     //PRE
     await knex.connect()
@@ -73,5 +77,6 @@ async function startKnex(results, rounds) {
 
     return results
 }
+
 
 module.exports = { start }

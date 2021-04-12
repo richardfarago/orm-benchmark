@@ -1,0 +1,47 @@
+//SQL
+{
+    fname: 'Rosalyn',
+    minit: 'HR',
+    lname: 'Scholz',
+    ssn: '100061125',
+    bdate: 2007-02-21T06: 38: 37.000Z,
+    address: '47 Northland Court',
+    sex: 'Male',
+    salary: 182618,
+    superssn: '205618844',
+    dno: 26,
+    projects: [
+        {
+        essn: '100061125',
+        pno: 1087,
+        hours: 22.7,
+        pname: 'Crowned eagle',
+        pnumber: 1087,
+        plocation: 'Texas',
+        dnum: 79
+        }
+    ]
+}
+//Sequleize
+{
+    fname: 'Rosalyn',
+    minit: 'HR',
+    lname: 'Scholz',
+    ssn: '100061125',
+    bdate: 2007-02-21T06: 38: 37.000Z,
+    address: '47 Northland Court',
+    sex: 'Male',
+    salary: 182618,
+    superssn: '205618844',
+    dno: 26,
+    pnoProjects: [
+        {
+            pname: 'Crowned eagle',
+            pnumber: 1087,
+            plocation: 'Texas',
+            dnum: 79,
+            WorksOn: { essn: '100061125', pno: 1087, hours: 22.7
+            }
+        }
+    ]
+}
